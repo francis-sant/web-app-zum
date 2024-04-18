@@ -1,0 +1,37 @@
+.sum-container {
+    background: aliceblue;
+      margin: 20px;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 20px;
+      text-align: center;
+
+  input {
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+}
+
+.sum-result,
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(0, 62, 104);
+  text-align: center;
+
+}
+
+.sum-total{
+    margin-bottom: 20px;
+    color: #3016f1;
+}
+
+span {
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+}
