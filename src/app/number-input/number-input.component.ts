@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
 
       <div class="sum-result">
         <h2>Result:</h2>
-        <div *ngIf="result !== undefined" class="sum-total">The total is = {{ result }}</div>
+        <div *ngIf="result !== null" class="sum-total"> The total is: {{ result }}</div>
       </div>
 
       <button (click)="NumberSum()" class="btn btn-primary">
@@ -31,7 +31,7 @@ import { CommonModule } from '@angular/common';
 export class NumberInputComponent {
   num1: number = 0;
   num2: number = 0;
-  result: number | undefined = undefined;
+  result: number | null = null;
   error: string | null = null;
 
   constructor(private http: HttpClient) {}
@@ -40,15 +40,15 @@ export class NumberInputComponent {
     const payload = { num1: this.num1, num2: this.num2 };
 
     this.http
-      .post('https://localhost:7216/api/CalculateSum', payload)
+      .post<{ sum: number }>('https://localhost:7216/api/Sum/CalculateSum', payload)
       .subscribe(
-        (response: any) => {
-          console.log('Result is:', response);
-          this.result = response;
+        (response: { sum: number }) => {
+         console.log('Result is:', response.sum);
+          this.result = response.sum;
         },
 
         (error) => {
-          this.error = 'An error has ocurred';
+          this.error = 'An error has occurred';
           console.error(error);
         }
       );
