@@ -18,13 +18,14 @@ import { CommonModule } from '@angular/common';
       <div class="sum-result">
         <h2>Result:</h2>
         <div *ngIf="result !== null" class="sum-total"> The total is: {{ result }}</div>
+        <span *ngIf="error !== null">Error: {{ error }}</span>
       </div>
 
       <button (click)="NumberSum()" class="btn btn-primary">
         Calculate Sum
       </button>
 
-      <span *ngIf="error !== null">Error: {{ error }}</span>
+
     </div>
   `,
 })
@@ -48,7 +49,7 @@ export class NumberInputComponent {
         },
 
         (error) => {
-          this.error = 'An error has occurred';
+          this.error = 'Please enter a valid number.';
           console.error(error);
         }
       );
