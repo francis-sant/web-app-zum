@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
       <input type="number" [(ngModel)]="num2" placeholder="Enter a number2" />
 
       <div class="sum-result">
-        <h2>Result:</h2>
+        <h2 *ngIf="!error">Result:</h2>
         <div *ngIf="result !== null" class="sum-total"> The total is: {{ result }}</div>
         <span *ngIf="error !== null">Error: {{ error }}</span>
       </div>
