@@ -46,10 +46,12 @@ export class NumberInputComponent {
         (response: { sum: number }) => {
          console.log('Result is:', response.sum);
           this.result = response.sum;
+          this.error = null;
         },
 
         (error) => {
           this.error = 'Please enter a valid number.';
+          this.result = null;
           console.error(error);
         }
       );
